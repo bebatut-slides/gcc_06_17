@@ -76,34 +76,37 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ### Topics for different targeted users
 
-
+![Topics](images/structure_topics.png)
 
 ----
 
-### Similar structure, content and format for all topics
+### Similar structure, content and formats
+
+![Similar structure, content and formats](images/structure_content.png) <!-- .element height="70%" width="70%" -->
 
 ----
 
 ### Separation between content and formatting
 
+![Content and formatting](images/content_formatting.png)
+
 ----
 
-### Clear definition of the technical infrastructure
+### Definition of the technical infrastructure
 
----
+![DOI Zenodo](images/structure_technical_zenodo.png) <!-- .element height="90%" width="90%" -->
 
-### Online training, but fitting also face-to-face workshops
+----
 
----
+### Definition of the technical infrastructure
 
-### FAIR
+![Instance](images/structure_technical_instance.png) <!-- .element height="80%" width="80%" -->
 
-- Findable
-    - TeSS
-    - Metadata
-- Accessible
-- Interoperable
-- Re-usable
+----
+
+### Definition of the technical infrastructure
+
+![Docker](images/structure_technical_docker.png) <!-- .element height="70%" width="70%" -->
 
 ---
 
