@@ -143,7 +143,9 @@ Note: ...but also fitting face-to-face workshops
 
 ---
 
-### A Community effort
+<!-- .slide: data-background="images/osi.jpg" -->
+
+# Community effort
 
 ----
 
@@ -153,12 +155,10 @@ Note: ...but also fitting face-to-face workshops
 
 ----
 
-### 44 Contributors
-
-*picture of the contributors*
+<!-- .slide: data-background-color="#000000" data-background="images/contributors.png" -->
 
 
-Thanks to them!!!
+<h2 class="fragment" data-fragment-index="2">THANKS to all of them !</p>
 
 ---
 
