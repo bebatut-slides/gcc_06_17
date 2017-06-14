@@ -110,11 +110,36 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ---
 
-### Open 
+## A FAIR model
 
 ----
 
-### Open Everything
+### Findable
+
+![TeSS integration](images/tess.png)
+
+----
+
+### Online & Accessible
+
+![Website Screenshot](images/website_screenshot.png) <!-- .element height="55%" width="55%" -->
+
+[http://galaxyproject.github.io/training-material/](http://galaxyproject.github.io/training-material/)
+
+Note: ...but also fitting face-to-face workshops
+
+----
+
+### Interoperable??
+
+----
+
+### Open & Re-usable
+
+- Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
+- Development on GitHub
+- Communications via Gitter
+- Open education movement
 
 ---
 
