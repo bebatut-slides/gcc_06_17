@@ -110,7 +110,9 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ---
 
-## A FAIR model
+![FAIR principles](images/FAIR_data_principles.jpg)
+
+# model
 
 ----
 
