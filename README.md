@@ -17,6 +17,17 @@ This material is automatically propagated to Elixir's TeSS portal. With this com
 
 # Usage
 
+## Requirements
+
+- [conda]()
+- Create the conda environment:
+
+    ```
+    $ conda create -f environment.yml -n gcc_06_17
+    ```
+
+## Slide generation
+
 The slides are written in markdown ([slides.md](slides.md)) and rendered using [reveal.js](https://github.com/hakimel/reveal.js/).
 
 To visualize the slides, you need to launch a local server:
@@ -24,4 +35,22 @@ To visualize the slides, you need to launch a local server:
 ```
 $ php -S localhost:8000
 ```
- and then open any web browser at the adress: [http://localhost:8000](http://localhost:8000).
+
+and then open any web browser at the adress: [http://localhost:8000](http://localhost:8000).
+
+## GitHub statistics
+
+- Launch the conda environment
+
+    ```
+    $ source activate gcc_06_17
+    ```
+
+- Generate a Personal access tokens on GitHub (in Setting)
+    
+- Extract statistics and contributors picture from the GitHub repository
+
+    ```
+    $ snakemake --snakefile src/extract_github_info.py
+    ```
+
