@@ -159,6 +159,12 @@ With 2 successful hackathons!
 
 ----
 
+### Regular new contributors
+
+![Number of new contributors over the months](images/new_contributors.png)
+
+----
+
 <!-- .slide: data-background-color="#000000" data-background="images/contributors.png" -->
 
 
