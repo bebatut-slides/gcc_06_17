@@ -155,6 +155,9 @@ rule extract_contribution_number:
             df.iloc[df.index.get_loc(date, method='nearest')].pull_request += 1
         # extract the number of Issues (all: open and closed ones)
         for issue in training_repo.get_issues(state="all"):
+            # not counting the issues that are PR
+            if issue.pull_request is not None:
+                continue
             date = format_date(issue.created_at)
             df.iloc[df.index.get_loc(date, method='nearest')].issue += 1
         # export to file
