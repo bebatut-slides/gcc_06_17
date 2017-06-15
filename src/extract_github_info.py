@@ -41,7 +41,8 @@ data_range = pd.date_range(
 rule all:
     input:
         contributors="images/contributors.png",
-        contribution_graph = "images/contributions.png"
+        contribution_graph = "images/contributions.png",
+        new_contributor_graph = "images/new_contributors.png"
 
 
 def extract_resizing_value(x, y, n):
@@ -220,3 +221,76 @@ rule plot_contribution_number:
         # fit the plot to the figure
         plt.tight_layout()
         plt.savefig(str(output.contribution_graph))
+
+
+rule extract_contributor_number:
+    '''
+    Extract the number of contributors over the months
+    '''
+    output:
+        contributor_tab = "data/contributors.csv"
+    run:
+        # extract the contributors per months
+        df = pd.DataFrame(
+            0,
+            columns=["first_contribution"],
+            index=data_range)
+        # parse the contributors
+        for contri in training_repo.get_contributors():
+            # extract the first commit by parsing the commits
+            first_commit = datetime.datetime.now()
+            commit_number = 0 
+            for commit in training_repo.get_commits(author=contri):
+                commit_date = commit.commit.author.date
+                if commit_date < first_commit:
+                    first_commit = commit_date
+            # add the a value for this date
+            date = format_date(first_commit)
+            df.iloc[df.index.get_loc(date, method='nearest')].first_contribution += 1
+        # export to file
+        df.to_csv(
+            str(output.contributor_tab),
+            index = True)
+
+
+rule plot_contributor_number:
+    '''
+    Plot the number of new contributors over the months
+    '''
+    input:
+        contributor_tab = "data/contributors.csv"
+    output:
+        contributor_graph = "images/new_contributors.png"
+    run:
+        # load the contribution number
+        df = pd.read_csv(str(input.contributor_tab), index_col = 0)
+        # rename the row and columns
+        df.index = df.index.map(format_str_date)
+        # plot the number of contributions
+        fig = plt.plot()
+        df.first_contribution.plot(x_compat=True)
+        # add vertical line for the contribution fests
+        plt.axvline(
+            x=format_str_date("2016-10-01 00:00:01"),
+            color='r',
+            linestyle='--')
+        plt.axvline(
+            x=format_str_date("2017-05-01 00:00:01"),
+            color='r',
+            linestyle='--')
+        # add contribution fest date
+        plt.text(
+            format_str_date("2016-10-01 00:00:01"),
+            max(df.max()),
+            "Online\nContribution\nFest",
+            horizontalalignment='right',
+            verticalalignment='top')
+        plt.text(
+            format_str_date("2017-05-01 00:00:01"),
+            max(df.max()),
+            "Cambridge\nTraining\nHackathon",
+            horizontalalignment='right',
+            verticalalignment='top')
+        # fit the plot to the figure
+        plt.tight_layout()
+        plt.savefig(str(output.contributor_graph))
