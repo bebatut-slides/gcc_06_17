@@ -42,6 +42,7 @@ rule all:
     input:
         contributors="images/contributors.png",
         contribution_graph = "images/contributions.png",
+        contribution_graph_with_hackathon = "images/contributions_with_hackathon.png",
         new_contributor_graph = "images/new_contributors.png"
 
 
@@ -183,7 +184,8 @@ rule plot_contribution_number:
     input:
         contribution_tab = "data/contributions.csv"
     output:
-        contribution_graph = "images/contributions.png"
+        contribution_graph = "images/contributions.png",
+        contribution_graph_with_hackathon = "images/contributions_with_hackathon.png"
     run:
         # load the contribution number
         df = pd.read_csv(str(input.contribution_tab), index_col = 0)
@@ -194,6 +196,11 @@ rule plot_contribution_number:
             "pull_request": "Pull Requests",
             "issue": "Issues"})
         # plot the number of contributions
+        fig = plt.plot()
+        df.plot(x_compat=True)
+        plt.tight_layout()
+        plt.savefig(str(output.contribution_graph))
+        # plot the number of contributions with hackathon
         fig = plt.plot()
         df.plot(x_compat=True)
         # add vertical line for the contribution fests
@@ -218,9 +225,9 @@ rule plot_contribution_number:
             "Cambridge\nTraining\nHackathon",
             horizontalalignment='right',
             verticalalignment='top')
-        # fit the plot to the figure
+        # export the figure
         plt.tight_layout()
-        plt.savefig(str(output.contribution_graph))
+        plt.savefig(str(output.contribution_graph_with_hackathon))
 
 
 rule extract_contributor_number:

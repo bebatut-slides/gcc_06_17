@@ -155,7 +155,13 @@ Note: ...but also fitting face-to-face workshops
 
 ![Number of contributions (commits, PR and issues) over the months](images/contributions.png)
 
-With 2 successful hackathons!
+----
+
+### Numerous contributions
+
+![Number of contributions (commits, PR and issues) over the months with hackathons](images/contributions_with_hackathon.png)
+
+And 2 successful hackathons!
 
 ----
 
