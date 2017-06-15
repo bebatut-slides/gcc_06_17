@@ -13,9 +13,12 @@ import pandas as pd
 
 configfile: "config.yaml"
 
+# connect to GitHub
 g = Github(config["token"])
+# extract the Galaxy Training Material repository
 training_repo = g.get_user("galaxyproject").get_repo("training-material")
 creation_date = training_repo.created_at
+
 
 def format_date(date):
     '''
@@ -28,6 +31,7 @@ def format_date(date):
     return first_day
 
 
+# generate a data range with month (first day of the month)
 data_range = pd.date_range(
     format_date(creation_date),
     format_date(datetime.datetime.now() + relativedelta(months=1)),
