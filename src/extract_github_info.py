@@ -195,15 +195,34 @@ rule plot_contribution_number:
             "commit_nb": "Commits",
             "pull_request": "Pull Requests",
             "issue": "Issues"})
+        # without hackathons
         # plot the number of contributions
         fig = plt.plot()
         df.plot(x_compat=True)
+        # add vertical line for GCC 2016
+        plt.axvline(
+            x=format_str_date("2016-06-01 00:00:01"),
+            color='k',
+            linestyle='--',
+            linewidth=2)
+        plt.text(
+            format_str_date("2016-06-01 00:00:01"),
+            max(df.max()),
+            "GCC 2016",
+            horizontalalignment='right',
+            verticalalignment='top')
         plt.tight_layout()
         plt.savefig(str(output.contribution_graph))
-        # plot the number of contributions with hackathon
+        # with hackathons
+        # plot the number of contributions
         fig = plt.plot()
         df.plot(x_compat=True)
         # add vertical line for the contribution fests
+        plt.axvline(
+            x=format_str_date("2016-06-01 00:00:01"),
+            color='k',
+            linestyle='--',
+            linewidth=2)
         plt.axvline(
             x=format_str_date("2016-10-01 00:00:01"),
             color='r',
@@ -213,6 +232,12 @@ rule plot_contribution_number:
             color='r',
             linestyle='--')
         # add contribution fest date
+        plt.text(
+            format_str_date("2016-06-01 00:00:01"),
+            max(df.max()),
+            "GCC 2016",
+            horizontalalignment='right',
+            verticalalignment='top')
         plt.text(
             format_str_date("2016-10-01 00:00:01"),
             max(df.max()),
@@ -278,6 +303,11 @@ rule plot_contributor_number:
         df.first_contribution.plot(x_compat=True)
         # add vertical line for the contribution fests
         plt.axvline(
+            x=format_str_date("2016-06-01 00:00:01"),
+            color='k',
+            linestyle='--',
+            linewidth=2)
+        plt.axvline(
             x=format_str_date("2016-10-01 00:00:01"),
             color='r',
             linestyle='--')
@@ -286,6 +316,12 @@ rule plot_contributor_number:
             color='r',
             linestyle='--')
         # add contribution fest date
+        plt.text(
+            format_str_date("2016-06-01 00:00:01"),
+            max(df.max()),
+            "GCC 2016",
+            horizontalalignment='right',
+            verticalalignment='top')
         plt.text(
             format_str_date("2016-10-01 00:00:01"),
             max(df.max()),
