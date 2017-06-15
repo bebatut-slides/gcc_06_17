@@ -5,6 +5,10 @@ import requests
 import math
 from snakemake.utils import makedirs
 import random
+import datetime
+import matplotlib.pyplot as plt
+from dateutil.relativedelta import relativedelta
+import pandas as pd
 
 
 configfile: "config.yaml"
@@ -13,9 +17,28 @@ g = Github(config["token"])
 training_repo = g.get_user("galaxyproject").get_repo("training-material")
 creation_date = training_repo.created_at
 
+def format_date(date):
+    '''
+    Format date to put it at the begin of the month
+    '''
+    first_day = date.replace(day = 1)
+    first_day = first_day.replace(hour = 0)
+    first_day = first_day.replace(minute = 0)
+    first_day = first_day.replace(second = 1)
+    return first_day
+
+
+data_range = pd.date_range(
+    format_date(creation_date),
+    format_date(datetime.datetime.now() + relativedelta(months=1)),
+    freq=pd.tseries.offsets.DateOffset(months=1))
+
+
 rule all:
     input:
-        contributors="images/contributors.png"
+        contributors="images/contributors.png",
+        contribution_graph = "images/contributions.png"
+
 
 def extract_resizing_value(x, y, n):
     '''
@@ -104,3 +127,89 @@ rule extract_contributor_avatar:
             result.paste(resized_img, (x, y, x + new_size, y + new_size))
         # export the image
         result.save(str(output.contributors))
+
+
+rule extract_contribution_number:
+    '''
+    Extract the number of contributions (commits, PR and issues) over the months
+    '''
+    output:
+        contribution_tab = "data/contributions.csv"
+    run:
+        # extract the contributions per months
+        df = pd.DataFrame(
+            0,
+            columns=["commit_nb","pull_request", "issue"],
+            index=data_range)
+        # extract the number of commits
+        for commit in training_repo.get_commits():
+            date = format_date(commit.commit.author.date)
+            df.iloc[df.index.get_loc(date, method='nearest')].commit_nb += 1
+        # extract the number of Pull Requests (all: open and closed ones)
+        for pr in training_repo.get_pulls(state="all"):
+            date = format_date(pr.created_at)
+            df.iloc[df.index.get_loc(date, method='nearest')].pull_request += 1
+        # extract the number of Issues (all: open and closed ones)
+        for issue in training_repo.get_issues(state="all"):
+            date = format_date(issue.created_at)
+            df.iloc[df.index.get_loc(date, method='nearest')].issue += 1
+        # export to file
+        df.to_csv(
+            str(output.contribution_tab),
+            index = True)
+
+
+def format_str_date(date_str):
+    '''
+    Take a date as a string and reformat it to get the month and year as a string
+    '''
+    #date = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+    #return "{:%B %Y}".format(date)
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+
+
+rule plot_contribution_number:
+    '''
+    Plot the number of contributions (commits, PR and issues) over the months
+    '''
+    input:
+        contribution_tab = "data/contributions.csv"
+    output:
+        contribution_graph = "images/contributions.png"
+    run:
+        # load the contribution number
+        df = pd.read_csv(str(input.contribution_tab), index_col = 0)
+        # rename the row and columns
+        df.index = df.index.map(format_str_date)
+        df = df.rename(columns = {
+            "commit_nb": "Commits",
+            "pull_request": "Pull Requests",
+            "issue": "Issues"})
+        # plot the number of contributions
+        fig = plt.plot()
+        df.plot(x_compat=True)
+        # add vertical line for the contribution fests
+        plt.axvline(
+            x=format_str_date("2016-10-01 00:00:01"),
+            color='r',
+            linestyle='--')
+        plt.axvline(
+            x=format_str_date("2017-05-01 00:00:01"),
+            color='r',
+            linestyle='--')
+        # add contribution fest date
+        plt.text(
+            format_str_date("2016-10-01 00:00:01"),
+            max(df.max()),
+            "Online\nContribution\nFest",
+            horizontalalignment='right',
+            verticalalignment='top')
+        plt.text(
+            format_str_date("2017-05-01 00:00:01"),
+            max(df.max()),
+            "Cambridge\nTraining\nHackathon",
+            horizontalalignment='right',
+            verticalalignment='top')
+        # fit the plot to the figure
+        plt.tight_layout()
+        plt.savefig(str(output.contribution_graph))
