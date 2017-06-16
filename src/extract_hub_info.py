@@ -12,6 +12,7 @@ import pandas as pd
 import base64
 from geopy.geocoders import Nominatim
 from lxml import etree
+import json
 
 
 configfile: "config.yaml"
@@ -36,7 +37,8 @@ def format_date(date):
 
 rule all:
     input:
-        gtn_event_tab = "data/gtn_events.csv"
+        gtn_event_tab = "data/gtn_events.csv",
+        gtn_event_map = "images/gtn_events.geojson"
 
 
 def extract_line(keyword, string):
@@ -241,11 +243,54 @@ rule extract_gtn_events:
                     file_content = file_content.decode("utf-8")
                     if file_content.find("gtn: y") == -1:
                         continue
-                    continue
-                    (title, date, days, latitude, longitude) = extract_event_info()
+                    (title, date, days, latitude, longitude) = extract_event_info(file_content)
                     # add a row with the information
                     df.loc[name] = [title, date, days, latitude, longitude]
         # export to file
         df.to_csv(
             str(output.gtn_event_tab),
             index = True)
+
+
+def format_str_date(date_str):
+    '''
+    Take a date as a string and reformat it to get the month and year as a string
+    '''
+    #date = datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+    #return "{:%B %Y}".format(date)
+    return datetime.datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+
+
+rule generate_event_map:
+    '''
+    Generate the event map
+    '''
+    input:
+        gtn_event_tab = "data/gtn_events.csv"
+    output:
+        gtn_event_map = "images/gtn_events.geojson"
+    run:
+        # load the event info
+        df = pd.read_csv(str(input.gtn_event_tab), index_col = 0)
+        # initiate the dict for the map
+        json_map = {
+            "type": "FeatureCollection",
+            "features": []}
+        # parse the events
+        for index, row in df.iterrows():
+            # pass if there is no coordinates
+            if pd.isnull(row['loc_latitude']):
+                continue
+            # add the event to the map
+            json_map["features"].append({
+                "type": "Feature",
+                "geometry": {
+                  "type": "Point",
+                  "coordinates": [row['loc_longitude'], row['loc_latitude']]},
+                "properties": {
+                  "Event": row['title'],
+                  "Date": format_str_date(row['date']).strftime("%B %d, %Y"),
+                  "Duration": row['days']}})
+        # export dict to JSON
+        with open(str(output.gtn_event_map), 'w') as fp:
+            json.dump(json_map, fp)
