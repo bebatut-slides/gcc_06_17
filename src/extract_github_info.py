@@ -14,7 +14,7 @@ import pandas as pd
 configfile: "config.yaml"
 
 # connect to GitHub
-g = Github(config["token"])
+g = Github(config["github"])
 # extract the Galaxy Training Material repository
 training_repo = g.get_user("galaxyproject").get_repo("training-material")
 creation_date = training_repo.created_at
