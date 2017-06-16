@@ -62,3 +62,10 @@ img{
     font-size: 0.7em;
 }
 
+html.dim-background .slide-background {
+    opacity: 0.8 !important;
+}
+
+.text-right {
+  text-align: right;
+}

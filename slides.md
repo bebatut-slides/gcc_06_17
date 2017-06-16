@@ -20,7 +20,26 @@ Galaxy Community Conference <br>June 2017
 
 ---
 
-### Why caring about bioinformatics training?
+<!-- .slide: data-background="images/freiburg_workshop.jpg" data-state="dim-background"-->
+
+# Why caring about bioinformatics training?
+
+----
+
+### Need for bioinformatic training
+
+> Bioinformatics has become too central to biology to be left to specialist bioinformaticians<br/>
+
+- Explosion of data to analyze
+- Access to computational power
+
+----
+
+### An increasing demand <br/>for learning bioinformatics
+
+![Current ways and preferences for learning bioinformatics](images/brazas_graphs.png)
+
+Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/098996)
 
 ---
 
