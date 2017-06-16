@@ -54,3 +54,9 @@ and then open any web browser at the adress: [http://localhost:8000](http://loca
     $ snakemake --snakefile src/extract_github_info.py
     ```
 
+- Extract statistics about the GTN events on the Galaxy Hub
+
+    ```
+    $ snakemake --snakefile src/extract_hub_info.py
+    ```
+
