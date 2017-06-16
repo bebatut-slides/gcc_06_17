@@ -38,7 +38,8 @@ def format_date(date):
 rule all:
     input:
         gtn_event_tab = "data/gtn_events.csv",
-        gtn_event_map = "images/gtn_events.geojson"
+        gtn_event_map = "images/gtn_events.geojson",
+        gtn_event_graph = "images/gtn_events.png"
 
 
 def extract_line(keyword, string):
@@ -294,3 +295,29 @@ rule generate_event_map:
         # export dict to JSON
         with open(str(output.gtn_event_map), 'w') as fp:
             json.dump(json_map, fp)
+
+
+rule plot_gtn_events:
+    '''
+    Plot the number of GTN events over the month
+    '''
+    input:
+        gtn_event_tab = "data/gtn_events.csv"
+    output:
+        gtn_event_graph = "images/gtn_events.png"
+    run:
+        # load the event info
+        df = pd.read_csv(str(input.gtn_event_tab), index_col = 0)
+        # format the date
+        new_df = df['date'].map(format_str_date).to_frame()
+        new_df.index = new_df['date']
+        # group by month
+        grouped_date = new_df.groupby(pd.TimeGrouper("M")).count()
+        # plot the number of events per month
+        fig = plt.plot()
+        ax = grouped_date.date.plot(
+            x_compat=True,
+            title='Number of registered training events over the months')
+        ax.set_xlabel('')
+        plt.tight_layout()
+        plt.savefig(str(output.gtn_event_graph))
