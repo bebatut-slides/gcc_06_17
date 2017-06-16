@@ -81,7 +81,7 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ---
 
-### The model
+# The model
 
 ----
 
@@ -138,7 +138,9 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ---
 
-![FAIR principles](images/FAIR_data_principles.jpg)
+# A
+
+![FAIR principles](images/FAIR_data_principles.jpg) <!-- .element height="85%" width="85%" -->
 
 # model
 
@@ -173,7 +175,7 @@ Note: ...but also fitting face-to-face workshops
 
 ---
 
-<!-- .slide: data-background="images/osi.jpg" -->
+<!-- .slide: data-background="images/osi.jpg"  data-state="dim-background"-->
 
 # Community effort
 
@@ -193,6 +195,14 @@ And 2 successful hackathons!
 
 ----
 
+### Numerous discussions
+
+![Gitter screenshot](images/gitter.png) <!-- .element height="70%" width="70%" -->
+
+Gitter: [Galaxy-Training-Network/Lobby](https://gitter.im/Galaxy-Training-Network/Lobby)
+
+----
+
 ### Regular new contributors
 
 ![Number of new contributors over the months](images/new_contributors.png)
@@ -208,6 +218,6 @@ And 2 successful hackathons!
 
 ### Thank You!
 
-![Summary scheme](images/global_analysis_scheme.png)
+*image*
 
 
