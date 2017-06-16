@@ -43,12 +43,15 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ---
 
-### Galaxy: a great solution!
+<!-- .slide: data-background="images/DSC_0630.jpg" data-state="dim-background"-->
+
+# Galaxy<br/>a great solution !
 
 ----
 
-### No need for computational knowledge!
+### No required computational knowledge!
 
+![UseGalaxy screenshot](images/usegalaxy.png) <!-- .element height="60%" width="60%" -->
 
 - Web interface for numerous bioinformatics tools
 - Scalable
@@ -56,9 +59,15 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ----
 
-### Used solution
+### A used solution...
 
-*nb of training events per month*
+![Number of GTN events over the month](images/gtn_events.png)
+
+----
+
+### Everywhere!
+
+![Map of GTN events](images/gtn_event_map.png)
 
 ---
 
