@@ -110,8 +110,6 @@ def extract_archived_event_info(file_content):
     '''
     Extract the useful event information for the archived events
     '''
-    #tree = html.fromstring(file_content)
-    #print(tree)
     file_content = file_content.decode("utf-8")
     # find the first year line
     year_pos = [m.start() for m in re.finditer('## ', file_content)]
@@ -316,8 +314,12 @@ rule plot_gtn_events:
         # plot the number of events per month
         fig = plt.plot()
         ax = grouped_date.date.plot(
-            x_compat=True,
-            title='Number of registered training events over the months')
+            kind='bar',
+            title='Number of registered GTN training events over the months')
         ax.set_xlabel('')
+        #ax.xaxis_date()
+        xtl=[item.get_text()[:7] for item in ax.get_xticklabels()]
+        ax.set_xticklabels(xtl)
+
         plt.tight_layout()
         plt.savefig(str(output.gtn_event_graph))
