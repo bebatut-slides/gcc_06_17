@@ -300,7 +300,9 @@ rule plot_contributor_number:
         df.index = df.index.map(format_str_date)
         # plot the number of contributions
         fig = plt.plot()
-        df.first_contribution.plot(x_compat=True)
+        df.first_contribution.plot(
+            x_compat=True,
+            title="Number of new contributors")
         # add vertical line for the contribution fests
         plt.axvline(
             x=format_str_date("2016-06-01 00:00:01"),
