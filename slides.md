@@ -32,6 +32,7 @@ Galaxy Community Conference <br>June 2017
 
 - Explosion of data to analyze
 - Access to computational power
+- Thousand of possible tools for specialized analyses
 
 ----
 
@@ -65,7 +66,7 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ----
 
-### Everywhere!
+### Worldwide!
 
 ![Map of GTN events](images/gtn_event_map.png)
 
@@ -79,6 +80,17 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ### Building a new **open**, **collaborative** and **FAIR** model for bioinformatics training
 
+----
+
+### Requirements
+
+- Easy to use
+- Support for effective training for
+    - Individual users
+    - Instructors
+- Definition of technological infrastructure
+- Limited redundancy
+
 ---
 
 # The model
@@ -90,15 +102,6 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 ![GitHub repo screenshot](images/github_repo.png) <!-- .element height="60%" width="60%" -->
 
 GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/training-material)
-
-----
-
-### Requirements
-
-- Easy to use
-- Support for effectively learning under multiple scenarios
-- Definition of technological infrastructure
-- Limited redundancy
 
 ----
 
@@ -138,40 +141,51 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ---
 
-# A
-
-![FAIR principles](images/FAIR_data_principles.jpg) <!-- .element height="85%" width="85%" -->
+![FAIR principles](images/fair.png)
 
 # model
 
 ----
 
-### Findable
+### ![Findable icon](images/findable.png) Findable
 
-![TeSS integration](images/tess.png)
+![TeSS integration](images/tess.png) <!-- .element height="80%" width="80%" -->
+
+[http://tess.elixir-europe.org/](http://tess.elixir-europe.org/)
 
 ----
 
-### Online & Accessible
+### ![Accessible icon](images/accessible.png) Accessible
 
-![Website Screenshot](images/website_screenshot.png) <!-- .element height="55%" width="55%" -->
 
-[http://galaxyproject.github.io/training-material/](http://galaxyproject.github.io/training-material/)
+- Online
+    
+    [http://galaxyproject.github.io/training-material/](http://galaxyproject.github.io/training-material/)
+
+- Technical support
+    - Self-training boxes with Galaxy Docker flavor
+    - Annotated public Galaxy instances
 
 Note: ...but also fitting face-to-face workshops
 
 ----
 
-### Interoperable??
+### ![Interoperable icon](images/interoperable.png) Interoperable
+
+- Metadata description in YAML and integrating EDAM ontology
+- Content for different targets (workshops and self-training)
+- Technical support for different platforms
 
 ----
+ 
+### ![Reusable icon](images/reusable.png) Reusable & Open
 
-### Open & Re-usable
-
-- Content: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)
-- Development on GitHub
-- Communications via Gitter
+- [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) license
+- DOI for the input datasets
+- Open development process on GitHub & via Gitter
 - Open education movement
+
+Note: Build on top of what John explained before
 
 ---
 
@@ -183,15 +197,13 @@ Note: ...but also fitting face-to-face workshops
 
 ### Numerous contributions
 
-![Number of contributions (commits, PR and issues) over the months](images/contributions.png)
+<div style="position:relative; width:640px; height:480px; margin:0 auto;">
+  <img src="images/contributions.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="images/contributions_with_hackathon.png" style="position:absolute;top:0;left:0;" />
+</div>
 
-----
-
-### Numerous contributions
-
-![Number of contributions (commits, PR and issues) over the months with hackathons](images/contributions_with_hackathon.png)
-
-And 2 successful hackathons!
+<p class="fragment">And 2 successful hackathons!
+</p>
 
 ----
 
@@ -203,21 +215,13 @@ Gitter: [Galaxy-Training-Network/Lobby](https://gitter.im/Galaxy-Training-Networ
 
 ----
 
-### Regular new contributors
+### A constantly growing community
 
 ![Number of new contributors over the months](images/new_contributors.png)
 
 ----
 
-<!-- .slide: data-background-color="#000000" data-background="images/contributors.png" -->
+<!-- .slide: data-background-color="#000000" data-background="images/contributors.png" data-state="dim-background-2"-->
 
-
-<h2 class="fragment" data-fragment-index="2">THANKS to all of them !</p>
-
----
-
-### Thank You!
-
-*image*
-
+<h2 class="fragment" data-fragment-index="2">THANKS to all of them!</h2>
 

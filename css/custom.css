@@ -63,7 +63,12 @@ img{
 }
 
 html.dim-background .slide-background {
-    opacity: 0.8 !important;
+    opacity: 0.6 !important;
+}
+
+
+html.dim-background-2 .slide-background {
+    opacity: 0.9 !important;
 }
 
 .text-right {
