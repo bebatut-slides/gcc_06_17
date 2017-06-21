@@ -12,7 +12,7 @@ The easiest way to navigate this slide deck is by hitting `[space]`on your keybo
 
 *image*
 
-Bérénice Batut
+**Bérénice Batut**, Galaxy Training Network, <br/>Dave Clements, Björn Grüning
 
 <small>
 Galaxy Community Conference <br>June 2017
