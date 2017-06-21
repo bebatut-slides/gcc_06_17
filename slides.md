@@ -10,7 +10,7 @@ The easiest way to navigate this slide deck is by hitting `[space]`on your keybo
 
 ### Building an open, collaborative, online infrastructure for bioinformatics training
 
-*image*
+![](images/gtn_rebooted.png)<!-- .element height="55%" width="55%" -->
 
 **Bérénice Batut**, Galaxy Training Network, <br/>Dave Clements, Björn Grüning
 
@@ -92,6 +92,8 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 - Limited redundancy
 
 ---
+
+<!-- .slide: data-background="images/gearwheels.jpg" data-state="dim-background"-->
 
 # The model
 
