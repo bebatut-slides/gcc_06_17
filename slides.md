@@ -60,7 +60,11 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ----
 
-### A used solution...
+<!-- .slide: data-background="images/gtn_explanation.png" -->
+
+----
+
+### Quite a lot of events...
 
 ![Number of GTN events over the month](images/gtn_events.png)
 
@@ -69,10 +73,6 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 ### Worldwide!
 
 ![Map of GTN events](images/gtn_event_map.png)
-
----
-
-<!-- .slide: data-background="images/gtn_explanation.png" -->
 
 ---
 
