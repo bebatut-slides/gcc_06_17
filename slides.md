@@ -20,7 +20,7 @@ Galaxy Community Conference <br>June 2017
 
 ---
 
-<!-- .slide: data-background="images/freiburg_workshop.jpg" data-state="dim-background"-->
+<!-- .slide: data-background="images/freiburg_workshop.jpg" data-state="dim-background" -->
 
 # Why caring about bioinformatics training?
 
@@ -38,19 +38,23 @@ Galaxy Community Conference <br>June 2017
 
 ### An increasing demand <br/>for learning bioinformatics
 
-![Current ways and preferences for learning bioinformatics](images/brazas_graphs.png)
+<div style="position:relative; width:1000px; height:450px; margin:0 auto;">
+  <img src="images/brazas_graphs.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="images/brazas_graphs_current_ways.png" style="position:absolute;top:0;left:0;" />
+  <img class="fragment" src="images/brazas_graphs_preferences.png" style="position:absolute;top:0;left:0;" />
+</div>
 
 Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/098996)
 
 ---
 
-<!-- .slide: data-background="images/DSC_0630.jpg" data-state="dim-background"-->
+<!-- .slide: data-background="images/DSC_0630.jpg" data-state="dim-background" -->
 
 # Galaxy<br/>a great solution !
 
 ----
 
-### No required computational knowledge!
+### Computational knowledge: Not required!
 
 ![UseGalaxy screenshot](images/usegalaxy.png) <!-- .element height="60%" width="60%" -->
 
@@ -67,6 +71,8 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 ### Quite a lot of events...
 
 ![Number of GTN events over the month](images/gtn_events.png)
+
+Note: Only the registered events, the Dark Matter probably higher
 
 ----
 
@@ -93,7 +99,7 @@ Graphs of [Brazas et al, 2017](http://biorxiv.org/content/early/2017/02/27/09899
 
 ---
 
-<!-- .slide: data-background="images/gearwheels.jpg" data-state="dim-background"-->
+<!-- .slide: data-background="images/gearwheels.jpg" data-state="dim-background" -->
 
 # The model
 
@@ -117,6 +123,8 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ![Similar structure, content and formats](images/structure_content.png) <!-- .element height="70%" width="70%" -->
 
+Note: Less time here
+
 ----
 
 ### Separation between content and formatting
@@ -125,9 +133,11 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 
 ----
 
-### Definition of the technical infrastructure
+### Citable data & Credit
 
 ![DOI Zenodo](images/structure_technical_zenodo.png) <!-- .element height="90%" width="90%" -->
+
+Note: To give credit to contributors and they are also in the declared in the metadata
 
 ----
 
@@ -140,6 +150,9 @@ GitHub: [galaxyproject/training-material](https://github.com/galaxyproject/train
 ### Definition of the technical infrastructure
 
 ![Docker](images/structure_technical_docker.png) <!-- .element height="70%" width="70%" -->
+
+Note: Model already successful applied by us over the last year.
+We refine the content and think about the reviews
 
 ---
 
