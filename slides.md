@@ -238,5 +238,6 @@ Gitter: [Galaxy-Training-Network/Lobby](https://gitter.im/Galaxy-Training-Networ
 
 <!-- .slide: data-background-color="#000000" data-background="images/contributors.png" data-state="dim-background-2"-->
 
+<br/>
 <h2 class="fragment" data-fragment-index="2">THANKS to all of them!</h2>
 
